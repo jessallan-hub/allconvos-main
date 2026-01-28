@@ -1,54 +1,110 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Check, ShieldCheck, Zap, Globe, MessageSquare } from "lucide-react";
 import { Button } from "../ui/Button";
-import { GlassCard } from "../ui/GlassCard";
-import { Check } from "lucide-react";
+
+const plans = [
+    {
+        name: "LITE_DEPLOYMENT",
+        price: "$199",
+        duration: "/mo",
+        description: "Single-agent mission for small shops.",
+        features: ["24/7 AI Receptionist", "Basic Lead Qualification", "SMS Notifications", "1,000 Action/mo"],
+        color: "text-blue-400",
+        bg: "bg-blue-400/5",
+        border: "border-blue-400/20"
+    },
+    {
+        name: "PRO_STRATEGY",
+        price: "$499",
+        duration: "/mo",
+        description: "Full-scale mission control. Our most popular.",
+        features: ["Unlimited AI Agents", "Deep Calendar Integration", "CRM Sync (HighLevel, etc)", "Priority System Support", "Everything in Lite"],
+        color: "text-neon",
+        bg: "bg-neon/10",
+        border: "border-neon/40",
+        popular: true
+    },
+    {
+        name: "ELITE_OVERSEER",
+        price: "CUSTOM",
+        duration: "",
+        description: "multi-location enterprise operations.",
+        features: ["Multi-Agent Orchestration", "Predictive Analytics", "Dedicated Mission Support", "Custom API Integrations", "Full System Overseer"],
+        color: "text-purple-400",
+        bg: "bg-purple-400/5",
+        border: "border-purple-400/20"
+    }
+];
 
 export function Pricing() {
     return (
-        <section id="pricing" className="py-24 relative">
-            <div className="max-w-4xl mx-auto px-6 text-center">
+        <section id="pricing" className="py-24 bg-ocean-950 relative overflow-hidden">
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
+                <div className="text-center mb-20">
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 italic uppercase tracking-tight">
+                        INVESTMENT <span className="text-white/20">/</span> SCALE
+                    </h2>
+                    <p className="text-gray-400 max-w-2xl mx-auto font-mono text-sm uppercase tracking-widest">
+                        // Choose your level of operational perfection
+                    </p>
+                </div>
 
-                <h2 className="text-4xl font-bold text-white mb-4">Simple, Transparent Pricing</h2>
-                <p className="text-gray-400 mb-12">One missed job costs you more than our yearly fee.</p>
+                <div className="grid lg:grid-cols-3 gap-6 items-stretch">
+                    {plans.map((plan, idx) => (
+                        <motion.div
+                            key={idx}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: idx * 0.1 }}
+                            className={`p-8 rounded-2xl border ${plan.border} ${plan.bg} backdrop-blur-sm flex flex-col relative group overflow-hidden`}
+                        >
+                            {plan.popular && (
+                                <div className="absolute top-0 right-0 bg-neon text-ocean-950 font-mono text-[10px] font-bold px-4 py-1.5 uppercase italic rounded-bl-xl tracking-widest animate-pulse">
+                                    RECOMMENDED
+                                </div>
+                            )}
 
-                <GlassCard className="border-neon/50 shadow-[0px_0px_50px_rgba(163,230,53,0.05)] relative overflow-visible transform transition-transform hover:scale-[1.01] text-left">
-                    <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-neon text-ocean-950 font-bold px-6 py-2 rounded-full uppercase text-xs tracking-wider shadow-lg">
-                        Most Popular
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-8 items-center pt-4">
-                        <div className="text-left space-y-6">
-                            <h3 className="text-2xl font-bold text-white">The &quot;Set & Forget&quot; Retainer</h3>
-                            <div className="flex items-baseline gap-2">
-                                <span className="text-5xl font-bold text-neon font-mono">$500</span>
-                                <span className="text-gray-400">/ month</span>
+                            <div className="mb-8">
+                                <h3 className={`text-sm font-mono font-bold uppercase tracking-[0.3em] ${plan.color} mb-4`}>
+                                    // {plan.name}
+                                </h3>
+                                <div className="flex items-baseline gap-1 mb-2">
+                                    <span className="text-5xl font-bold text-white tracking-tighter">{plan.price}</span>
+                                    <span className="text-gray-500 font-mono text-xs">{plan.duration}</span>
+                                </div>
+                                <p className="text-gray-400 font-mono text-[10px] uppercase leading-relaxed tracking-wider">
+                                    {plan.description}
+                                </p>
                             </div>
-                            <p className="text-sm text-gray-400">+ $1,000 one-time setup (Custom Training your Digital Staff)</p>
 
-                            <Button className="w-full">Start Your Free Trial</Button>
-                            <p className="text-xs text-gray-500 text-center mt-2">More bookings in 30 days or you don’t pay.</p>
-                        </div>
+                            <div className="space-y-4 mb-10 flex-1">
+                                {plan.features.map((feature, fIdx) => (
+                                    <div key={fIdx} className="flex items-start gap-3">
+                                        <div className={`mt-1 h-1.5 w-1.5 rounded-full ${plan.color} shrink-0`} />
+                                        <span className="text-xs font-mono text-gray-400 uppercase tracking-wide">
+                                            {feature}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
 
-                        <div className="text-left border-t md:border-t-0 md:border-l border-white/10 pt-8 md:pt-0 md:pl-8 space-y-4">
-                            <ul className="space-y-3">
-                                <li className="flex items-center gap-3 text-sm text-gray-300">
-                                    <span className="text-neon"><Check className="w-4 h-4" /></span> 24/7 Call & SMS Handling
-                                </li>
-                                <li className="flex items-center gap-3 text-sm text-gray-300">
-                                    <span className="text-neon"><Check className="w-4 h-4" /></span> Direct Calendar Booking
-                                </li>
-                                <li className="flex items-center gap-3 text-sm text-gray-300">
-                                    <span className="text-neon"><Check className="w-4 h-4" /></span> Local &quot;Northern Rivers&quot; Dialect
-                                </li>
-                                <li className="flex items-center gap-3 text-sm text-gray-300">
-                                    <span className="text-neon"><Check className="w-4 h-4" /></span> Unlimited Conversations
-                                </li>
-                                <li className="flex items-center gap-3 text-sm text-gray-300">
-                                    <span className="text-neon"><Check className="w-4 h-4" /></span> Dedicated Account Manager
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </GlassCard>
+                            <Button
+                                variant={plan.popular ? 'primary' : 'secondary'}
+                                className="w-full font-mono uppercase italic tracking-widest text-xs"
+                            >
+                                {plan.price === 'CUSTOM' ? 'Request Intel' : 'Initialize Plan'}
+                            </Button>
+
+                            {/* Decorative background badge */}
+                            <div className="absolute -bottom-10 -right-10 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity duration-700">
+                                <ShieldCheck className={`w-40 h-40 ${plan.color}`} />
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
         </section>
     );
