@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { ChatWidget } from "../components/ChatWidget";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -26,7 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} antialiased scroll-smooth`}>
-      <body>{children}</body>
+      <body className="relative">
+        {children}
+        <ChatWidget />
+      </body>
     </html>
   );
 }
