@@ -37,8 +37,15 @@ export function MessagingDemo() {
             if (navigator.permissions && navigator.permissions.query) {
                 navigator.permissions.query({ name: 'microphone' as PermissionName })
                     .then(result => {
-                        console.log('Mic Permission Status:', result.state);
-                        setMicPermissionGranted(result.state === 'granted');
+                        if (result.state === 'granted') {
+                            console.log('Microphone access already granted');
+                            setMicPermissionGranted(true);
+                        } else if (result.state === 'prompt') {
+                            console.log('User will be prompted for microphone access');
+                            setMicPermissionGranted(false);
+                        } else {
+                            setMicPermissionGranted(false);
+                        }
                     });
             }
         };
