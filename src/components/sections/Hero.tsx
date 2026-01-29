@@ -1,5 +1,8 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { Button } from "../ui/Button";
+import Link from "next/link";
 import { ArrowRight, Bot, User, CheckCircle } from "lucide-react";
 
 export function Hero() {
