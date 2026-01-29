@@ -159,7 +159,7 @@ export function MessagingDemo() {
                                 >
                                     <iframe
                                         ref={frameRef}
-                                        src="https://iframes.ai/o/1766461376490x480369842284396540?color=ffffff&icon="
+                                        src="https://iframes.ai/o/1769676637704x140265771944116220?color=1def05&icon="
                                         allow="microphone https://iframes.ai; camera https://iframes.ai; autoplay *; encrypted-media *; fullscreen *; display-capture *; picture-in-picture *; clipboard-read *; clipboard-write *;"
                                         className="w-full h-[200px] border-none"
                                         id="assistantFrame"
