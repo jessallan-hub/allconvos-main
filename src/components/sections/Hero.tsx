@@ -54,7 +54,7 @@ export function Hero() {
                         transition={{ duration: 0.5, delay: 0.3 }}
                         className="flex flex-col sm:flex-row gap-4 pt-4"
                     >
-                        <Link href="#pricing">
+                        <Link href="/build">
                             <Button>Build My AI Agent</Button>
                         </Link>
                         <Button
