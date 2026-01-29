@@ -1,14 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Button } from "../ui/Button";
-import Link from "next/link";
 import { ArrowRight, Bot, User, CheckCircle } from "lucide-react";
-import { VoiceDemoModal } from "../ui/VoiceDemoModal";
 
 export function Hero() {
-    const [isDemoOpen, setIsDemoOpen] = useState(false);
 
     return (
         <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
@@ -63,7 +57,7 @@ export function Hero() {
                         <Button
                             variant="secondary"
                             className="group"
-                            onClick={() => setIsDemoOpen(true)}
+                            onClick={() => document.getElementById('mission-control')?.scrollIntoView({ behavior: 'smooth' })}
                         >
                             Voice Demo Active <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Button>
@@ -81,6 +75,7 @@ export function Hero() {
 
                 {/* Hero Visual: Mission Control Interface */}
                 <motion.div
+                    id="mission-control"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
@@ -98,12 +93,21 @@ export function Hero() {
                         </div>
 
                         <div className="p-6 space-y-4 font-mono text-sm">
-                            {/* Chat Message 1 */}
                             <div className="flex items-start space-x-4">
                                 <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0"><User className="w-4 h-4" /></div>
                                 <div className="bg-ocean-800 p-3 rounded-lg rounded-tl-none border border-white/5 text-gray-300">
                                     <p>Hey, do you guys do emergency plumbing in Ballina?</p>
                                 </div>
+                            </div>
+
+                            {/* Live Voice AI Widget */}
+                            <div className="flex justify-center items-center py-4 bg-white/5 rounded-lg border border-white/5 animate-in fade-in zoom-in duration-700">
+                                <iframe
+                                    src="https://iframes.ai/o/1760442563274x523950783927418900?color=ffffff&icon="
+                                    allow="microphone; camera; autoplay; encrypted-media; fullscreen; display-capture; picture-in-picture; clipboard-read; clipboard-write;"
+                                    className="w-full h-[200px] border-none"
+                                    id="assistantFrame"
+                                />
                             </div>
 
                             {/* Chat Message 2 */}
@@ -144,8 +148,6 @@ export function Hero() {
                     </div>
                 </motion.div>
             </div>
-
-            <VoiceDemoModal isOpen={isDemoOpen} onClose={() => setIsDemoOpen(false)} />
         </section>
     );
 }
