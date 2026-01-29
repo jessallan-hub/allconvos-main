@@ -95,7 +95,7 @@ export function VoiceDemoModal({ isOpen, onClose }: VoiceDemoModalProps) {
                             <div className="w-full h-[200px] relative">
                                 <iframe
                                     ref={frameRef}
-                                    src="https://iframes.ai/o/1760439406132x932462890577297400?color=30c326&icon=bot"
+                                    src="https://iframes.ai/o/1760442563274x523950783927418900?color=ffffff&icon="
                                     allow="microphone"
                                     className="w-full h-full border-none"
                                     id="assistantFrame"
