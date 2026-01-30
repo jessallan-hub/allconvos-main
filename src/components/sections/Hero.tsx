@@ -128,9 +128,9 @@ export function Hero() {
                         </div>
 
                         <div className="p-4 space-y-4 font-mono text-sm relative">
-                            {/* Experience the Future Sub-header */}
+                            {/* Experience the future of sales header */}
                             <div className="mb-2">
-                                <span className="text-[10px] text-neon/60 uppercase tracking-widest">Mission: Experience the Future</span>
+                                <span className="text-[10px] text-neon uppercase tracking-widest font-bold">Experience the future of sales</span>
                             </div>
 
                             {/* Chat Illustration */}
