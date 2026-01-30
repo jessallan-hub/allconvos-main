@@ -16,22 +16,8 @@ export function VSL() {
     };
 
     return (
-        <section className="py-24 bg-ocean-950 relative overflow-hidden text-center">
+        <section className="pb-24 pt-0 bg-ocean-950 relative overflow-hidden text-center">
             <div className="max-w-5xl mx-auto px-6 relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="mb-12"
-                >
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 italic">
-                        DEMO: TURNING CALLS INTO REVENUE
-                    </h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto font-mono text-sm">
-                        // Real-time automation. No fluff.
-                    </p>
-                </motion.div>
 
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
