@@ -66,9 +66,9 @@ export default function BuildPage() {
                                 Constructor_Mode_v1.5
                             </div>
 
-                            <h1 className="text-5xl font-bold leading-tight">
-                                Construct Your <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">Digital twin.</span>
+                            <h1 className="text-5xl font-bold leading-tight uppercase">
+                                create your <br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 italic">digital twin</span>
                             </h1>
 
                             <p className="text-lg text-gray-400 leading-relaxed">
@@ -115,7 +115,7 @@ export default function BuildPage() {
                                 <div className="flex items-center gap-4">
                                     <div className="flex items-center gap-2">
                                         <Bot className="w-4 h-4 text-white/40" />
-                                        <span className="text-sm font-bold text-white uppercase tracking-tighter">Agent_Constructor</span>
+                                        <span className="text-sm font-bold text-white uppercase tracking-tighter">Agent_Builder</span>
                                     </div>
                                     <span className="text-[10px] font-mono text-white/20 uppercase tracking-widest hidden sm:block">Real-Time Configuration</span>
                                 </div>
