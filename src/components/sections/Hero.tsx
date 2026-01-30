@@ -8,7 +8,14 @@ import { ArrowRight, Bot, User, CheckCircle, Mic, Terminal, MessageSquare, Shiel
 
 export function Hero() {
     const [micPermissionGranted, setMicPermissionGranted] = useState(false);
+    const [isHighlighting, setIsHighlighting] = useState(false);
     const frameRef = useRef<HTMLIFrameElement>(null);
+
+    const handleTalkClick = () => {
+        setIsHighlighting(true);
+        document.getElementById('mission-control')?.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => setIsHighlighting(false), 3000);
+    };
 
     useEffect(() => {
         const checkPermissions = () => {
@@ -86,7 +93,7 @@ export function Hero() {
                         <Button
                             variant="secondary"
                             className="group"
-                            onClick={() => document.getElementById('mission-control')?.scrollIntoView({ behavior: 'smooth' })}
+                            onClick={handleTalkClick}
                         >
                             Talk to AI Now <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Button>
@@ -111,6 +118,18 @@ export function Hero() {
                     className="relative hidden lg:block"
                 >
                     <div className="absolute -inset-1 bg-gradient-to-r from-neon to-blue-600 rounded-lg blur opacity-20" />
+
+                    {/* Pulsing Highlight Border */}
+                    {isHighlighting && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: [0, 1, 0.5, 1, 0] }}
+                            transition={{ duration: 3, times: [0, 0.1, 0.5, 0.9, 1] }}
+                            className="absolute -inset-0.5 rounded-lg bg-neon z-20 pointer-events-none"
+                            style={{ filter: 'blur(1px)' }}
+                        />
+                    )}
+
                     <div className="relative bg-ocean-900 border border-white/10 rounded-lg shadow-2xl overflow-hidden">
                         <div className="bg-ocean-950 border-b border-white/10 px-4 py-3 flex items-center justify-between">
                             <div className="flex items-center gap-4">
