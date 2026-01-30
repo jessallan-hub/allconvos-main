@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { VSL } from "@/components/sections/VSL";
 import { CallHandling } from "@/components/sections/CallHandling";
+import { DIYDemo } from "@/components/sections/DIYDemo";
 import { MessagingDemo } from "@/components/sections/MessagingDemo";
 import { DashboardPreview } from "@/components/sections/DashboardPreview";
 import { HowItWorks } from "@/components/sections/HowItWorks";
@@ -16,6 +17,7 @@ export default function Home() {
       <MessagingDemo />
       <VSL />
       <CallHandling />
+      <DIYDemo />
       <DashboardPreview />
       <HowItWorks />
       <Pricing />
