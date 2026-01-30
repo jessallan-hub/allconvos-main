@@ -33,17 +33,17 @@ export function TestimonialStrip() {
                     <div className="max-w-2xl relative">
                         <Quote className="absolute -top-3 -left-6 w-8 h-8 text-white/5 rotate-180" />
                         <p className="text-white/90 text-sm md:text-base font-medium italic leading-relaxed">
-                            "The AI Receptionist has completely transformed how we handle after-hours leads. We haven't missed a single job since integration. It's like having a human assistant that never sleeps."
+                            "The team at AllConvos AI absolutely nailed the setup for us. Everything’s way more streamlined now — we’re saving a heap of time and we’re booking more appointments without the usual back-and-forth. Super smooth process and great support."
                         </p>
                     </div>
 
                     {/* Attribution */}
                     <div className="flex flex-col items-center md:items-end">
                         <p className="text-white font-black text-xs uppercase tracking-widest">
-                            James Henderson
+                            Ryan
                         </p>
                         <p className="text-neon text-[10px] font-black uppercase tracking-widest mt-1">
-                            Director, Elite Plumbing
+                            Fitness Box
                         </p>
                     </div>
                 </motion.div>
