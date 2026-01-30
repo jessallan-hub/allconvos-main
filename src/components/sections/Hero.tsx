@@ -13,8 +13,7 @@ export function Hero() {
 
     const handleTalkClick = () => {
         setIsHighlighting(true);
-        document.getElementById('mission-control')?.scrollIntoView({ behavior: 'smooth' });
-        setTimeout(() => setIsHighlighting(false), 3000);
+        setTimeout(() => setIsHighlighting(false), 2000);
     };
 
     useEffect(() => {
@@ -123,8 +122,8 @@ export function Hero() {
                     {isHighlighting && (
                         <motion.div
                             initial={{ opacity: 0 }}
-                            animate={{ opacity: [0, 1, 0.5, 1, 0] }}
-                            transition={{ duration: 3, times: [0, 0.1, 0.5, 0.9, 1] }}
+                            animate={{ opacity: [0, 0.4, 0.2, 0.4, 0] }}
+                            transition={{ duration: 2, times: [0, 0.1, 0.5, 0.9, 1] }}
                             className="absolute -inset-0.5 rounded-lg bg-neon z-20 pointer-events-none"
                             style={{ filter: 'blur(1px)' }}
                         />
