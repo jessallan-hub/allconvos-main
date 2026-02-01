@@ -31,7 +31,7 @@ export function VSL() {
                     <video
                         ref={videoRef}
                         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${isPlaying ? 'opacity-100' : 'opacity-0'}`}
-                        src="/vsl-demo.mp4"
+                        src="/allconvos-demo.mp4"
                         controls={isPlaying}
                         playsInline
                     />
